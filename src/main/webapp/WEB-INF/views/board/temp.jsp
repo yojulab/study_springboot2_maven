@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
 
 <body>
     <%@ include file="/WEB-INF/views/header.jsp" %>
+    한글 문제 확인용
 
     <% 
         String searchStringAtt = (String)request.getAttribute("searchString"); 

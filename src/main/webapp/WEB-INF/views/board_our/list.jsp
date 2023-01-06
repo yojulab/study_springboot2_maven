@@ -12,6 +12,15 @@
 
 <body>
     <div>board/list</div>
+    <div>
+    <%
+       String firstWithRequest = (String)request.getAttribute("firstString");
+    %>
+        <div>With Request.getAttribute : <%= firstWithRequest %></div>
+    </div>
+    <div>
+        <div>With Get Value on Spring : ${firstString}</div>
+    </div>
     <div class="container">
         <table class="table">
             <thead>

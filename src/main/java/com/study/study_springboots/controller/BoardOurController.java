@@ -16,24 +16,31 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/board_our")
 public class BoardOurController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)  
-    public String edit() {
-        return "board_our/edit";
+    public ModelAndView edit(ModelAndView modelAndView) {
+        modelAndView.setViewName("board_our/edit");
+        return modelAndView;
     }
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)  
-    public String list() {
-        return "board_our/list";
+    public ModelAndView list() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("firstString", "firstValue");
+        modelAndView.setViewName("board_our/list");
+        return modelAndView;    // --> Dispatcher Servlet
     }
     @RequestMapping(value = "/view", method = RequestMethod.GET)  
-    public String view() {
-        return "board_our/view";
+    public ModelAndView view(ModelAndView modelAndView) {
+        modelAndView.setViewName("board_our/view");
+        return modelAndView;
     }
     @RequestMapping(value = "/form", method = RequestMethod.GET)    
-    public String form() {
-        return "board_our/form";
+    public ModelAndView form(ModelAndView modelAndView) {
+        modelAndView.setViewName("board_our/form");
+        return modelAndView;
     }
     @RequestMapping(value = "/save", method = RequestMethod.POST)    
-    public String save() {
+    public ModelAndView save(ModelAndView modelAndView) {
         // insert biz
-        return "board_our/list";
+        modelAndView.setViewName("board_our/list");
+        return modelAndView;
     }
 }

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +21,9 @@
         <div>With Request.getAttribute : <%= firstWithRequest %></div>
     </div>
     <div>
-        <div>With Get Value on Spring : ${firstString}</div>
+        <div>With Get Value on Spring : ${firstString}, ${boardList}</div>
     </div>
+
     <div class="container">
         <table class="table">
             <thead>

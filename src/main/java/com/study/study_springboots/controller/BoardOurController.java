@@ -1,9 +1,14 @@
 package com.study.study_springboots.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.study.study_springboots.beans.BoardBean;
+import com.study.study_springboots.service.DataInfors;
 
 // * Cast 
 // - use bootstrap
@@ -24,11 +29,19 @@ public class BoardOurController {
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("firstString", "firstValue");
+        DataInfors dataInfors = new DataInfors();
+        ArrayList<BoardBean> boardList = dataInfors.getDataListWithBoardBean();
+        modelAndView.addObject("boardList", boardList);
+        
         modelAndView.setViewName("board_our/list");
         return modelAndView;    // --> Dispatcher Servlet
     }
     @RequestMapping(value = "/view", method = RequestMethod.GET)  
     public ModelAndView view(ModelAndView modelAndView) {
+        DataInfors dataInfors = new DataInfors();
+        BoardBean boardBean = dataInfors.getDataWithMamberBean();
+        modelAndView.addObject("boardBean", boardBean);
+
         modelAndView.setViewName("board_our/view");
         return modelAndView;
     }

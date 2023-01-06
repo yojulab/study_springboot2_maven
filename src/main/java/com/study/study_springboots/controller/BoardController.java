@@ -12,18 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 //   + list.jsp(/board) -> view.jsp(/board/view) -> list.jsp(/board/list)
 //   + list.jsp(/board) -> form.jsp(/board/form) -> form.jsp(/board/form) with Post  -> list.jsp(/board/list)
 //   + view.jsp(/board/view) -> edit.jsp(/board/edit) -> list.jsp(/board/list)
-@Controller
+// @Controller
 public class BoardController {
-    @RequestMapping(value = "/board/form", method = RequestMethod.GET)
+    // @RequestMapping(value = "/board/form", method = RequestMethod.GET)
     public String form() {
         return "/WEB-INF/views/board/form.jsp";
     }
-    @RequestMapping(value = "/board/form", method = RequestMethod.POST)
+    // @RequestMapping(value = "/board/form", method = RequestMethod.POST)
     public String formPost() {
         // insert biz
         return "/WEB-INF/views/board/list.jsp";
     }
-    @RequestMapping(value = "/board/temp", method = RequestMethod.GET)
+    // @RequestMapping(value = "/board/temp", method = RequestMethod.GET)
     public ModelAndView temp() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("searchString", "firstValue");

@@ -13,7 +13,7 @@
 <body>
     <div>/board/edit</div>
     <div class="container">
-        <form action="/board/list">
+        <form action="/board_our/save">
             <div>
                 <label for="title">title</label>
                 <input type="text " class="form-control" name="title" id="title" />

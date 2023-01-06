@@ -11,10 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 // - CRUD : 
 //   + list.jsp(/board) -> view.jsp(/board/view) -> list.jsp(/board/list)
 //   + list.jsp(/board) -> form.jsp(/board/form) -> list.jsp(/board/save) with Post  -> list.jsp(/board/list)
-//   + view.jsp(/board/view) -> edit.jsp(/board/edit) -> list.jsp(/board/list)
+//   + view.jsp(/board/view) -> edit.jsp(/board/edit) -> list.jsp(/board/save)
 @Controller
 @RequestMapping(value = "/board_our")
 public class BoardOurController {
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)  // /board_our
+    public String edit() {
+        return "board_our/edit";
+    }
     @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)  // /board_our
     public String list() {
         return "board_our/list";

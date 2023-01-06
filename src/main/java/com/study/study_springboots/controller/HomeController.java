@@ -8,7 +8,7 @@ public class HomeController {
     @RequestMapping(value = {"", "/", "/main"})    // http://localhost:8080/homejsp
     public String main(){
         int i = 0;
-        return "WEB-INF/views/main.jsp";
+        return "main";
     }
     @RequestMapping(value = "/home")    // http://localhost:8080/homejsp
     public void home(){
@@ -17,11 +17,11 @@ public class HomeController {
     @RequestMapping(value = "/homejsp")    // http://localhost:8080/homejsp
     public String homejsp(){
         int i = 0;
-        return "WEB-INF/views/home.jsp";
+        return "home";
     }
     @RequestMapping(value = "/homehtml")    // http://localhost:8080/homehtml
     public String homehtml(){
         int i = 0;
-        return "WEB-INF/views/home.html";
+        return "home.html";
     }
 }

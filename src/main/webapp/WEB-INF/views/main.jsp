@@ -12,6 +12,7 @@
     <div>Main ! HTML</div>
     <div>Board</div>
     <div> <a href="/board/form">/board/form BoardController form() /board/form.jsp</a> </div>
+    <div> <a href="/board_our/form">/board_our BoardOurController form() /board_our/form.jsp</a> </div>
 
 </body>
 

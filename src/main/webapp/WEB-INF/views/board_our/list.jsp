@@ -57,9 +57,10 @@
     <%--BoardBean value =  boardList.get(i)--%>
     <%--}--%>
     <%--for(BoardBean board: boardList){--%>
+    <%--board.getTitle()--%>
     <%--}--%>
     <c:forEach var="board" items="${boardList}" varStatus="status">
-        <div>${board.title} : ${status.count}, ${status.index}, ${status.first}, ${status.last}</div>
+        <div>${board.title}, ${board.userName} : ${status.count}, ${status.index}, ${status.first}, ${status.last}</div>
     </c:forEach>
     <div class="container">
         <table class="table">

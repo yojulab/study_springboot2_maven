@@ -34,7 +34,7 @@
             <form action="/board_our/list">
                 <button>go list</button>
             </form>
-            <form action="/board_our/edit" method="post">
+            <form action="/board_our/edit?title=test" method="post">
                 <button>edit</button>
             </form>
         </div>

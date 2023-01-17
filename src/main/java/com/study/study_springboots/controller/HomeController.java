@@ -3,8 +3,16 @@ package com.study.study_springboots.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.study.study_springboots.dao.HomeDao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Controller
 public class HomeController {
+
+    @Autowired
+    HomeDao homeDao;
+    
     @RequestMapping(value = {"", "/", "/main"})    // http://localhost:8080/homejsp
     public String main(){
         int i = 0;
@@ -12,6 +20,7 @@ public class HomeController {
     }
     @RequestMapping(value = "/home")    // http://localhost:8080/homejsp
     public void home(){
+        Object result = homeDao.getList();
         int i = 0;
     }
     @RequestMapping(value = "/homejsp")    // http://localhost:8080/homejsp

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class HomeController {
 
     @Autowired
-    HomeDao homeDao;
+    HomeDao homeDao ;
     
     @RequestMapping(value = {"", "/", "/main"})    // http://localhost:8080/homejsp
     public String main(){

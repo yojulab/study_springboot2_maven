@@ -4,6 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
+<div class="container">
 <div class="form-group form-row justify-content-between">
 	<div class="col">
 		<div class="btn-group">
@@ -80,4 +81,5 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 <!-- /.table-responsive -->

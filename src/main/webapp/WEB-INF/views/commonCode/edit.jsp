@@ -1,33 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<c:set var="paramAction"  />
-<c:set var="statusDisabled" value="" />
-<c:set var="statusReadonly" value="" />
-<c:set var="nextAction" value="" />
-<c:set var="buttonAction" value="" />
-
-<c:choose>
-	<c:when test='${paramAction == "read"}'>
-		<c:set var="statusDisabled"  />
-		<c:set var="statusReadonly"  />
-		<c:set var="nextAction"  />
-		<c:set var="buttonAction"  />
-	</c:when>
-	<c:when test='${paramAction == "update"}'>
-		<c:set var="statusReadonly" value="" />
-		<c:set var="nextAction"  />
-		<c:set var="buttonAction"  />
-	</c:when>
-	<c:otherwise>
-		<c:set var="statusReadonly" value="" />
-		<c:set var="nextAction"  />
-		<c:set var="buttonAction"  />
-	</c:otherwise>
-</c:choose>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 <input type="hidden" name="PARENT_COMMONCODE_ID"
 	>
 <div class="form-group form-row">
@@ -67,7 +42,7 @@
 					code="text.option" />)
 		</span></label>
 		<textarea class="form-control" rows="3" name="CONTENT"
-			placeholder="<spring:message code="validation.inputValue' />"
+			placeholder=""
 			${statusDisabled}>${resultMap.CONTENT }</textarea>
 	</div>
 </div>

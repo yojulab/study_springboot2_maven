@@ -1,7 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="form-group form-row justify-content-between">
@@ -65,7 +65,7 @@
 				<td class="text-center"><input type="checkbox" class="checkbox"
 					name="COMMONCODE_ID"  /></td>
 				<td><button class="btn btn-link viewPopup" type="button"
-						formaction="<c:url value='/commonCode/read?COMMONCODE_ID=${resultData.COMMONCODE_ID}' />">${resultData.COMMONCODE_ID}</button>
+						>${resultData.COMMONCODE_ID}</button>
 				</td>
 				<td>${resultData.NAME}</td>
 				<td class="text-center">

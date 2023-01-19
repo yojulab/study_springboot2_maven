@@ -10,6 +10,12 @@ public class CommonCodeOurService {
     @Autowired
     CommonCodeOurDao commonCodeOurDao;
 
+    public Object deleteAndGetList(Object dataMap){
+        Object result = this.delete(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
+    
     public Object getList(Object dataMap){
         String sqlMapId = "CommonCodeOur.selectListByUID";
         Object result = commonCodeOurDao.getList(sqlMapId, dataMap);

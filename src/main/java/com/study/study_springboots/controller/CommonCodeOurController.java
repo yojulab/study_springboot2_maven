@@ -32,11 +32,12 @@ public class CommonCodeOurController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/delete/{uniqueId}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/delete/{uniqueId}"}, method = RequestMethod.POST)
     public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId
                     , ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
-        commonCodeOurService.delete(params);
+        Object resultMap = commonCodeOurService.deleteAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }

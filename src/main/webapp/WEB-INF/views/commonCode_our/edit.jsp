@@ -5,13 +5,14 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="container">
-<input type="hidden" name="PARENT_COMMONCODE_ID"
-	>
+<form action="/commonCodeOur/update" method="post">
+
+<input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}">
 <div class="form-group form-row">
 	<div class="col">
 		<label>코드 ID</label> <input class="form-control" type="text"
-			name="COMMONCODE_ID" value="${resultMap.COMMON_CODE_ID}"
-			placeholder="TEMPORORY_COMMONCODE" required ${statusReadonly } />
+			name="COMMON_CODE_ID" value="${resultMap.COMMON_CODE_ID}"
+			placeholder="TEMPORORY_COMMONCODE" required readonly />
 		<div class="invalid-tooltip">
 			
 		</div>
@@ -72,20 +73,22 @@
 </div>
 <div class="row justify-content-between">
 	<div class="col">
-		<button class="btn btn-primary"
-			>
-			Save
-		</button>
+			<button class="btn btn-primary"
+				>
+				Update
+			</button>
 		<button class="btn btn-outline-info"
 			>
 			List
 		</button>
 	</div>
+
 	<div class="col text-right">
 		<%-- <button type="button" class="btn btn-secondary" data-dismiss="modal">
 			
 		</button> --%>
 	</div>
 </div>
+</form>
 </div>
 

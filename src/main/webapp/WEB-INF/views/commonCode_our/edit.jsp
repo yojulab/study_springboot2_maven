@@ -5,7 +5,12 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
 <div class="container">
-<form action="/commonCodeOur/update" method="post">
+<c:set var="form_action" value="update" />
+<c:if test="${empty resultMap}">
+	<c:set var="form_action" value="insert" />
+</c:if>
+
+<form action="/commonCodeOur/${form_action}" method="post">
 
 <input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}">
 <div class="form-group form-row">
@@ -75,7 +80,7 @@
 	<div class="col">
 			<button class="btn btn-primary"
 				>
-				Update
+				${form_action}
 			</button>
 		<button class="btn btn-outline-info"
 			>

@@ -20,6 +20,12 @@ public class CommonCodeOurController {
     @Autowired
     CommonCodeOurService commonCodeOurService;
 
+    @RequestMapping(value = {"/insert"}, method = RequestMethod.POST)
+    public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        commonCodeOurService.insertOne(params);
+        modelAndView.setViewName("commonCode_our/list");
+        return modelAndView;
+    }
     @RequestMapping(value = {"/form"}, method = RequestMethod.GET)
     public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         modelAndView.setViewName("commonCode_our/edit");

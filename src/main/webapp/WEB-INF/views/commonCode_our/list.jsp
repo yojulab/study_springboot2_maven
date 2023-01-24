@@ -10,7 +10,7 @@
 		>Form</button>
 </form>
 
-<form action="/commonCodeOur/delete" method="post">
+<form action="/commonCodeOur/deleteMulti" method="post">
 	<button class="btn btn-info"
 		>delete Multi</button>
 <table class="table table-striped table-hover table-bordered">

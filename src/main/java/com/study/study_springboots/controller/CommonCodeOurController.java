@@ -46,9 +46,13 @@ public class CommonCodeOurController {
     }
 
     @RequestMapping(value = { "/deleteMulti" }, method = RequestMethod.POST)
-    public ModelAndView deleteMulti(@RequestParam Map<String, Object> params,
+    public ModelAndView deleteMulti(HttpServletRequest httpServletRequest, @RequestParam Map<String, Object> params,
             ModelAndView modelAndView) {
         // modelAndView.addObject("resultMap", resultMap);
+        String[] deleteMultis = httpServletRequest.getParameterMap().get("COMMON_CODE_ID");
+        params.put("deleteMultis", deleteMultis);
+        Object resultMap = commonCodeOurService.deleteMulti(params);
+
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }

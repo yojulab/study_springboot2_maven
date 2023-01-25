@@ -25,8 +25,10 @@
 		<tbody>
 			<c:forEach items="${resultMap}" var="resultData" varStatus="loop">
 				<tr>
-					<td class="text-center"><input type="checkbox" class="checkbox"
-						name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" /></td>
+					<td class="text-center">
+						<input type="checkbox" class="checkbox"
+						name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" />
+					</td>
 					<td>
 						<form action="/commonCodeOur/edit/${resultData.COMMON_CODE_ID}" method="get">
 							<button class="btn btn-link viewPopup"

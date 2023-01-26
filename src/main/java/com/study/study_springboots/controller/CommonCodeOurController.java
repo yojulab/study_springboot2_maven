@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,8 +43,18 @@ public class CommonCodeOurController {
         // file 저장
         BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(relativePath+fileName));
         bufferedWriter.write(new String(multipartFile.getBytes()));
-        
+        bufferedWriter.flush();
+
         commonCodeOurService.insertOne(params);
+        modelAndView.setViewName("commonCode_our/list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/insertMulti" }, method = RequestMethod.POST)
+    public ModelAndView insertMulti(MultipartHttpServletRequest multipartHttpServletRequest
+            , @RequestParam Map<String, Object> params
+            , ModelAndView modelAndView) throws IOException {
+
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;
     }
@@ -51,6 +62,12 @@ public class CommonCodeOurController {
     @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
     public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         modelAndView.setViewName("commonCode_our/edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/formMulti" }, method = RequestMethod.GET)
+    public ModelAndView formMulti(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        modelAndView.setViewName("commonCode_our/editMulti");
         return modelAndView;
     }
 

@@ -9,6 +9,10 @@
 	<button class="btn btn-info"
 		>Form</button>
 </form>
+<form action="/commonCodeOur/formMulti" method="get">
+	<button class="btn btn-info"
+		>FormMulti</button>
+</form>
 
 <form action="/commonCodeOur/deleteMulti" method="post">
 <button class="btn btn-info">delete Multi</button>

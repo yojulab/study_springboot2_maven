@@ -67,7 +67,7 @@ public class CommonCodeOurController {
         String relativePath = "C:\\Develops\\study_springboots\\src\\main\\resources\\static\\files\\";
 
         Map attachfile = null;
-        List attchfiles = new ArrayList();
+        List attachfiles = new ArrayList();
         String physicalFileName = commonUtils.getUniqueSequence();
         String storePath = relativePath + physicalFileName + "\\" ;
         File newPath = new File(storePath);
@@ -82,13 +82,16 @@ public class CommonCodeOurController {
 
             // add SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME in HashMap
             attachfile = new HashMap<>();
+            attachfile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
             attachfile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID") );
             attachfile.put("ORGINALFILE_NAME", originalFilename);
             attachfile.put("PHYSICALFILE_NAME", physicalFileName);
+            attachfile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
+            attachfile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
 
-            attchfiles.add(attachfile);
+            attachfiles.add(attachfile);
         }
-        params.put("attchfiles", attchfiles);
+        params.put("attachfiles", attachfiles);
 
         Object resultMap = commonCodeOurService.insertWithFilesAndGetList(params);
         modelAndView.addObject("resultMap", resultMap);

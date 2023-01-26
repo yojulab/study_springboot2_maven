@@ -16,6 +16,13 @@ public class CommonCodeOurService {
         return result;
     }
     
+    public Object insertWithFilesAndGetList(Object dataMap){
+        // insert files
+        Object result = this.insertOne(dataMap);
+        result = this.getList(dataMap);
+        return result;
+    }
+    
     public Object getList(Object dataMap){
         String sqlMapId = "CommonCodeOur.selectListByUID";
         Object result = commonCodeOurDao.getList(sqlMapId, dataMap);

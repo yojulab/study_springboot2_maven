@@ -1,10 +1,14 @@
 package com.study.study_springboots.controller;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +25,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.study.study_springboots.service.CommonCodeOurService;
+import com.study.study_springboots.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value = "/commonCodeOur")
@@ -28,6 +33,9 @@ public class CommonCodeOurController {
 
     @Autowired
     CommonCodeOurService commonCodeOurService;
+
+    @Autowired
+    CommonUtils commonUtils;
 
     @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
     public ModelAndView insert(MultipartHttpServletRequest multipartHttpServletRequest
@@ -54,6 +62,36 @@ public class CommonCodeOurController {
     public ModelAndView insertMulti(MultipartHttpServletRequest multipartHttpServletRequest
             , @RequestParam Map<String, Object> params
             , ModelAndView modelAndView) throws IOException {
+
+        Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
+        String relativePath = "C:\\Develops\\study_springboots\\src\\main\\resources\\static\\files\\";
+
+        Map attachfile = null;
+        List attchfiles = new ArrayList();
+        String physicalFileName = commonUtils.getUniqueSequence();
+        String storePath = relativePath + physicalFileName + "\\" ;
+        File newPath = new File(storePath);
+        newPath.mkdir();        // create directory
+        while (fileNames.hasNext()) {
+            String fileName = fileNames.next();
+            MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
+            String originalFilename = multipartFile.getOriginalFilename();
+
+            String storePathFileName = storePath + originalFilename;
+            multipartFile.transferTo(new File(storePathFileName));
+
+            // add SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME in HashMap
+            attachfile = new HashMap<>();
+            attachfile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID") );
+            attachfile.put("ORGINALFILE_NAME", originalFilename);
+            attachfile.put("PHYSICALFILE_NAME", physicalFileName);
+
+            attchfiles.add(attachfile);
+        }
+        params.put("attchfiles", attchfiles);
+
+        Object resultMap = commonCodeOurService.insertWithFilesAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
 
         modelAndView.setViewName("commonCode_our/list");
         return modelAndView;

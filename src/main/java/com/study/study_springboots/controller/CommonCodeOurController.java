@@ -38,9 +38,8 @@ public class CommonCodeOurController {
     CommonUtils commonUtils;
 
     @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
-    public ModelAndView insert(MultipartHttpServletRequest multipartHttpServletRequest
-            , @RequestParam Map<String, Object> params
-            , ModelAndView modelAndView) throws IOException {
+    public ModelAndView insert(MultipartHttpServletRequest multipartHttpServletRequest,
+            @RequestParam Map<String, Object> params, ModelAndView modelAndView) throws IOException {
 
         String registerSeq = multipartHttpServletRequest.getParameter("REGISTER_SEQ");
 
@@ -49,7 +48,7 @@ public class CommonCodeOurController {
 
         String relativePath = "src\\main\\resources\\static\\files\\";
         // file 저장
-        BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(relativePath+fileName));
+        BufferedWriter bufferedWriter = Files.newBufferedWriter(Paths.get(relativePath + fileName));
         bufferedWriter.write(new String(multipartFile.getBytes()));
         bufferedWriter.flush();
 
@@ -59,19 +58,18 @@ public class CommonCodeOurController {
     }
 
     @RequestMapping(value = { "/insertMulti" }, method = RequestMethod.POST)
-    public ModelAndView insertMulti(MultipartHttpServletRequest multipartHttpServletRequest
-            , @RequestParam Map<String, Object> params
-            , ModelAndView modelAndView) throws IOException {
+    public ModelAndView insertMulti(MultipartHttpServletRequest multipartHttpServletRequest,
+            @RequestParam Map<String, Object> params, ModelAndView modelAndView) throws IOException {
 
         Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
-        String relativePath = "C:\\Develops\\study_springboots\\src\\main\\resources\\static\\files\\";
+        String relativePath = commonUtils.getRelativeToAbsolutePath("src/main/resources/static/files");
 
         Map attachfile = null;
         List attachfiles = new ArrayList();
         String physicalFileName = commonUtils.getUniqueSequence();
-        String storePath = relativePath + physicalFileName + "\\" ;
+        String storePath = relativePath + physicalFileName + File.separator;
         File newPath = new File(storePath);
-        newPath.mkdir();        // create directory
+        newPath.mkdir(); // create directory
         while (fileNames.hasNext()) {
             String fileName = fileNames.next();
             MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
@@ -83,7 +81,7 @@ public class CommonCodeOurController {
             // add SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME in HashMap
             attachfile = new HashMap<>();
             attachfile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
-            attachfile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID") );
+            attachfile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID"));
             attachfile.put("ORGINALFILE_NAME", originalFilename);
             attachfile.put("PHYSICALFILE_NAME", physicalFileName);
             attachfile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));

@@ -10,6 +10,9 @@ public class CommonCodeOurService {
     @Autowired
     CommonCodeOurDao commonCodeOurDao;
 
+    @Autowired
+    AttachFileService attachFileService;
+
     public Object deleteAndGetList(Object dataMap){
         Object result = this.delete(dataMap);
         result = this.getList(dataMap);
@@ -18,7 +21,8 @@ public class CommonCodeOurService {
     
     public Object insertWithFilesAndGetList(Object dataMap){
         // insert files
-        Object result = this.insertOne(dataMap);
+        Object result = attachFileService.insertMulti(dataMap);
+        result = this.insertOne(dataMap);
         result = this.getList(dataMap);
         return result;
     }

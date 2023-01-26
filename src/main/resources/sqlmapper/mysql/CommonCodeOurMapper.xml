@@ -8,7 +8,7 @@
         SELECT * 
         FROM CIP_COMMON_CODE
         <![CDATA[ 
-        where ORDER_NUMBER >  3
+        where ORDER_NUMBER >  0
         ]]>
     </select>
 

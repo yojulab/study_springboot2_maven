@@ -164,9 +164,9 @@ public class CommonCodeOurController {
             ModelAndView modelAndView) {
         params.put("COMMON_CODE_ID", uniqueId);
         params.put("SOURCE_UNIQUE_SEQ", uniqueId);
-        Object resultMap = commonCodeOurService.getOne(params);
+        Object resultMap = commonCodeOurService.getOneWithAttachFiles(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("commonCode_our/edit");
+        modelAndView.setViewName("commonCode_our/editMulti");
         return modelAndView;
     }
 }

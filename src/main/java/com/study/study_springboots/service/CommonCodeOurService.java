@@ -13,6 +13,12 @@ public class CommonCodeOurService {
     @Autowired
     AttachFileService attachFileService;
 
+    public Object getOneWithAttachFiles(Object dataMap){
+
+        Object result = this.getOne(dataMap);
+        return null;
+    }
+
     public Object deleteAndGetList(Object dataMap){
         Object result = this.delete(dataMap);
         result = this.getList(dataMap);

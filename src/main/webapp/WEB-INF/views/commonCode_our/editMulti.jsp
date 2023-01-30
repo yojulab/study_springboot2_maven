@@ -23,6 +23,10 @@
 		<input type="hidden" name="file_${loop.index}" value="${resultData.ATTACHFILE_SEQ}" />
 	</div>
 </c:forEach>
+	<div class="form-group form-row">
+		<label class="form-label">File Upload</label>
+		<input type="file" name="file_first" class="form-control"> 
+	</div>
 
 <div class="form-group form-row">
 	<div class="col">

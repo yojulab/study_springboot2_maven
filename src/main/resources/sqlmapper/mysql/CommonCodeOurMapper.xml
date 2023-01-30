@@ -27,7 +27,7 @@
 
     <!-- call CommonCodeOur.selectTotal -->
     <select id="selectTotal" 
-        parameterType="Map" resultType="Map">
+        parameterType="Map" resultType="int">
         SELECT count(*) as cnt
         FROM CIP_COMMON_CODE
     </select>

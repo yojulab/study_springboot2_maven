@@ -41,8 +41,9 @@ public class CommonCodeOurService {
     }
 
     public Object getListWithPagination(Object dataMap){
-        Object result = this.getTotal(dataMap);
-        result = this.getList(dataMap);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("total", this.getTotal(dataMap));
+        result.put("resultList", this.getList(dataMap));
         return result;
     }
 

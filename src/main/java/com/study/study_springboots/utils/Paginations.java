@@ -54,7 +54,7 @@ public class Paginations {
         pageEnd = this.pageBegin + pageScale - 1;
     }
     public void setTotalPage(int totalCount){
-        this.totalPage = (int) Math.ceil(totalCount / this.pageScale);
+        this.totalPage = (int) Math.ceil(totalCount * 1.0 / this.pageScale);
     }
 
     public int getPageScale() {

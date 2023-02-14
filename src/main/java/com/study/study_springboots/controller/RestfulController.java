@@ -5,12 +5,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 import java.util.HashMap;
 
+import com.study.study_springboots.service.CommonCodeOurService;
+
 @RestController
+@CrossOrigin
 public class RestfulController {
+
 
     @RequestMapping(value = "/api/v1/helloworld", method = RequestMethod.GET)
     public String helloworld(){
@@ -26,4 +31,18 @@ public class RestfulController {
         return result;
     }
 
+    @Autowired
+    CommonCodeOurService commonCodeOurService;
+
+    // currentPage : 1
+    @RequestMapping(value = "/api/v1/requestParamsWithDB", method = RequestMethod.POST)
+    public Map requestParamsWithDB(@RequestParam Map<String, Object> params){
+        params.put("currentPage", Integer.parseInt((String)params.get("currentPage")));
+        params.put("pageScale", 10);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap = (Map<String, Object>)commonCodeOurService.getListWithPagination(params);
+
+        return resultMap;
+    }
 }

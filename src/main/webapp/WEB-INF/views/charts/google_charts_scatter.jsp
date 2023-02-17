@@ -6,8 +6,7 @@
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
+        let dataArray = [
                 ['Age', 'Weight'],
                 [8, 12],
                 [4, 5.5],
@@ -15,8 +14,21 @@
                 [4, 5],
                 [3, 3.5],
                 [6.5, 7]
-            ]);
+            ];
+        dataArray = ${dataArray};
+    function drawChart() {
 
+            // var data = google.visualization.arrayToDataTable([
+            //     ['Age', 'Weight'],
+            //     [8, 12],
+            //     [4, 5.5],
+            //     [11, 14],
+            //     [4, 5],
+            //     [3, 3.5],
+            //     [6.5, 7]
+            // ]);
+
+            var data = google.visualization.arrayToDataTable(dataArray);
             var options = {
                 title: 'Age vs. Weight comparison',
                 hAxis: { title: 'Age', minValue: 0, maxValue: 15 },

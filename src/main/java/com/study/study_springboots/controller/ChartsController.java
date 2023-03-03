@@ -29,9 +29,9 @@ public class ChartsController {
         datas.add(Arrays.asList(6.5, 7));
         ArrayList dataArray = new ArrayList<>();
         dataArray.add(datas);
-        
-        modelAndView.addObject("dataArray", gson.toJson(datas));
 
+        modelAndView.addObject("dataArray", gson.toJson(datas));
+        
         modelAndView.setViewName("charts/google_charts_scatter");
         return modelAndView;
     }

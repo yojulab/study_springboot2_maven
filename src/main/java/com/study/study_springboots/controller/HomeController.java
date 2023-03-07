@@ -38,4 +38,14 @@ public class HomeController {
         int i = 0;
         return "jstl_formats";
     }
+    @RequestMapping(value = "/ajaxs/jQuery_ajaxReturnhellow")
+    public String jQuery_ajaxReturnhellow(){
+        int i = 0;
+        return "ajaxs/jQuery_ajaxReturnhellow";
+    }
+    @RequestMapping(value = "/ajaxs/jQuery_ajaxParamsReturnMap")
+    public String jQuery_ajaxParamsReturnMap(){
+        int i = 0;
+        return "ajaxs/jQuery_ajaxParamsReturnMap";
+    }
 }

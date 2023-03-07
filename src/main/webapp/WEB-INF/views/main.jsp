@@ -17,7 +17,8 @@
     <div> <a href="/commonCodeOur/">/commonCodeOur/list.jsp</a> </div>
     <div> <a href="/commonCodeOur/listPagination/1">/commonCodeOur/list_pagination.jsp</a> </div>
     <div> <a href="/charts/google_charts_scatter">//charts/google_charts_scatter.jsp</a> </div>
-
+    <div> <a href="/ajaxs/jQuery_ajaxReturnhellow">/ajaxs/jQuery_ajaxReturnhellow.jsp</a> </div>
+    <div> <a href="/ajaxs/jQuery_ajaxParamsReturnMap">/ajaxs/jQuery_ajaxParamsReturnMap.jsp</a> </div>
 </body>
 
 </html>

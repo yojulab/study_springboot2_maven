@@ -5,11 +5,13 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.study.study_springboots.dao.CommonCodeOurDao;
 import com.study.study_springboots.utils.Paginations;
 
 @Service
+@Transactional
 public class CommonCodeOurService {
     @Autowired
     CommonCodeOurDao commonCodeOurDao;
